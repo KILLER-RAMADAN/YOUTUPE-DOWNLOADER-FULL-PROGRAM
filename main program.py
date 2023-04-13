@@ -64,6 +64,7 @@ Menubar.add_command(label="Exit",command=stop,font=('Technolog', 3, ' bold '))
 
 
 def locate():
+    locate_entry.delete(0,1000)
     global file_location
     file_location=filedialog.askdirectory(initialdir=os.getcwd(),title="select location")
     locate_entry.insert(END,file_location)
