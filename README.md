@@ -2,7 +2,8 @@
 
 # HOME 🐱‍🏍🐱‍🏍🐱‍🏍
 
-![Screenshot 2023-04-13 073704](https://user-images.githubusercontent.com/90656786/231665174-295a19e8-6666-4d15-8d63-52f7da778277.png)
+![Screenshot 2023-04-14 175818](https://user-images.githubusercontent.com/90656786/232099043-484ad9b1-64a0-4704-ac66-1bc66cb8ef9e.png)
+
 
 
 
