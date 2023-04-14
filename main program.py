@@ -10,6 +10,7 @@ from PIL import ImageTk,Image
 import urllib.request, io
 from tkinter.ttk import *
 import threading
+import time
 from youtupe_sound import down_sound
 from youtube_playlist import youtube_list
 #all libraries here.....
@@ -79,8 +80,6 @@ def download_youtube_ved():
      global v_author1_lable
      global v_views1_lable
      global v_date1_lable
-     
-     
      url =link_entry.get()
      my_video = YouTube(url,on_complete_callback=finish_down)
      tilte_v=my_video.title
@@ -88,7 +87,7 @@ def download_youtube_ved():
      date_v=my_video.publish_date.strftime("%Y/%m/%d")
      author_v=my_video.author
      
-     
+     #############################################
      v_itle_lable=tk.Label(root,text=tilte_v,fg="black",font=("calibre ",15,"bold"))
      v_itle_lable.place(x=120,y=205)
      
@@ -106,7 +105,7 @@ def download_youtube_ved():
      v_date1_lable.place(x=400,y=150)
      
      
-     
+     # youtube photo
      yt = YouTube(str(my_video.thumbnail_url))
      raw_data = urllib.request.urlopen(yt.thumbnail_url).read()
      im = Image.open(io.BytesIO(raw_data)).resize((200, 200))
@@ -114,13 +113,38 @@ def download_youtube_ved():
      c = Canvas(root, width=200, height=150)
      c.create_image(0,0,anchor='nw', image=image)
      c.place(x=10,y=50)
-     my_video = my_video.streams.filter(res=resolution.get()).first().download(file_location)
+     # youtube photo
+     #############################################
+     # progress par function
+     
+     total_size =100
+     GB =int(total_size)
+     download = 0
+     speed = 1
+     while(download<GB):
+      time.sleep(0.250)
+      progress_bar['value']+=(speed/GB)*100
+      download+=speed
+      progress_label.config(text=str(int((download/GB)*100))+"%")
+      progress_label.config(text=str(download)+"%/"+str(GB)+" Completed")
+      root.update_idletasks()
+      if progress_bar['value']==99:
+        status.config(text="Status: Processing Video.......")
+        my_video = my_video.streams.filter(res=resolution.get()).first().download(file_location)
+     progress_label.config(text='')
+     progress_bar['value'] = 0
+     root.update()
+    
+    
+    
     except:
      messagebox.showerror(title='Error', message='An error occurred while searching for video resolutions!\n'\
                 'Below might be the causes\n->Unstable internet connection\n->Invalid link\n->Invalid Location\n->closing program')
      status.config(text="Status: Erorr")
      resolution_button.configure(state="normal")
      download_button.configure(state="normal")
+     progress_label.config(text='')
+     progress_bar['value'] = 0
 
 
 
@@ -138,10 +162,7 @@ def active_download():
         messagebox.showerror("Invalid Download","Please Enter The Correct File location!!")  
      elif resolution.get()=="":
        messagebox.showerror("Invalid Download","Please Enter video resolution..")
-#    elif home_directory not in locate_entry.get():
-#        messagebox.showerror("Invalid Download","Please Enter The Correct File location!!") 
      else:
-        stop_threads = False
         download_button.configure(state="disable")
         resolution_button.configure(state="disable")
         status.config(text="Status: Downloading.......")
@@ -155,12 +176,16 @@ def active_download():
 
 
 
+
+
+
 def finish_down(stream=None,chunk=None,file_handle=None,remaining=None):
     messagebox.showinfo("Successful Download","Downloaded Successfully...!!")
     download_button.configure(state="normal")
     resolution_button.configure(state="normal")
     link_entry.delete(0,1000)
     locate_entry.delete(0,100)
+    resolution.delete(0,100)
     v_itle_lable.destroy()
     v_date1_lable.destroy()
     v_author1_lable.destroy()
@@ -192,7 +217,6 @@ def searchResolution():
 
 def searchThread():
     video_link = link_entry.get()
-    res_text=resolution.get()
     if video_link == '':
         messagebox.showerror(title='Error', message='Provide the video link please!')
     
@@ -255,6 +279,16 @@ v_resolution_label=tk.Label(root,text="resolution:",fg="black",font=("calibre 15
 v_resolution_label.place(x=300,y=340)
 resolution_button=tk.Button(root,text="Serch resolution",font=('Helvetica 10'), compound= LEFT,bd=1,command=searchThread,activebackground="white")
 resolution_button.place(x=520,y=368)
+
+
+
+progress_label = Label(root, text='')
+progress_label.place(x=640,y=368)
+progress_bar = ttk.Progressbar(root, orient=HORIZONTAL, length=450, mode='determinate')
+progress_bar.place(x=300,y=405)
+
+
+
 
 
 
