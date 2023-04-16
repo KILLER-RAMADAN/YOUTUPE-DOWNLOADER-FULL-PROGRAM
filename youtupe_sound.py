@@ -33,7 +33,7 @@ def down_sound():
  Label1=customtkinter.CTkLabel(y_sound,text="",image=img)
  Label1.place(x=220,y=9)
 
- youtupe_lable=customtkinter.CTkLabel(y_sound,text="Youtube Video Downloader",font=("calibre ",20,"bold"))
+ youtupe_lable=customtkinter.CTkLabel(y_sound,text="Youtube Sound Downloader",font=("calibre ",20,"bold"))
  youtupe_lable.place(x=275,y=10)
 
  
@@ -200,7 +200,7 @@ def down_sound():
  file_locte_button.place(x=670,y=255)
 
 
- link_lable=customtkinter.CTkLabel(y_sound,text="Youtube Link Here",font=("TLabel ",20,"bold"))
+ link_lable=customtkinter.CTkLabel(y_sound,text="Sound Link Here",font=("TLabel ",20,"bold"))
  link_lable.place(x=0,y=220)
 
  locate_lable=customtkinter.CTkLabel(y_sound,text="Location",font=("TLabel",25,"bold"))
