@@ -24,6 +24,6 @@
 
 # you can also download any playlist on youtube 😍😍
 
+![Screenshot 2023-04-16 131705](https://user-images.githubusercontent.com/90656786/232305761-e9697728-a0ce-4079-8af4-03a322515d68.png)
 
-![Screenshot 2023-04-16 115659](https://user-images.githubusercontent.com/90656786/232305598-b28e6ba0-d8f5-4f14-97df-3fa9261451b1.png)
 
