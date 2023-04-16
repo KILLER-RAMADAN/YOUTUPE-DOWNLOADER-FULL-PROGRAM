@@ -16,7 +16,8 @@
 # you also can download the sound of any video on youtube in a faster way 😉😉🚀
 
 
-![Screenshot 2023-04-16 115542](https://user-images.githubusercontent.com/90656786/232305589-e3cbb8d3-180e-4b6b-a1d8-fa82808ff8b4.png)
+
+![Screenshot 2023-04-16 132905](https://user-images.githubusercontent.com/90656786/232306881-514a8b84-c54f-4214-bb84-89c0b10ec3e0.png)
 
 
 
