@@ -4,7 +4,7 @@ by following command in your terminal=>(pip install <name of the laibrary>) <imp
 
 to install full program without problems run this command (git clone + the link of repo) <important>
 
-make sure to unstall all libraries to provide any problems...
+make sure to install all libraries to provide any problems...
 
 
 ################################################
@@ -20,6 +20,11 @@ from PIL import ImageTk,Image
 import urllib.request, io
 from tkinter.ttk import *
 import threading
+import time
+import customtkinter
+from PIL import Image
+import json
+from pytube import Playlist
 ################################################
 
 
